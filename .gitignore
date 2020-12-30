@@ -1,0 +1,7 @@
+.stack-work/
+.idea
+dist-newstyle
+out
+minds.iml
+stack.yaml.lock
+*~
