@@ -1,3 +1,5 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+
 module DayUtils
   ( isWeekend,
     Day (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday),
@@ -11,6 +13,7 @@ module DayUtils
 where
 
 import Data.List (elemIndex)
+import Data.Maybe (fromJust)
 
 data Day
   = Monday
@@ -31,22 +34,14 @@ isWeekend day
   | otherwise = False
 
 nextDay :: Day -> Day
-nextDay Monday = Tuesday
-nextDay Tuesday = Wednesday
-nextDay Wednesday = Thursday
-nextDay Thursday = Friday
-nextDay Friday = Saturday
-nextDay Saturday = Sunday
-nextDay Sunday = Monday
+nextDay day = let nextIndex = (fromJust (elemIndex day weekDays) + 1) `mod` 7
+                                  in
+                                    weekDays !! nextIndex
 
 previousDay :: Day -> Day
-previousDay Monday = Sunday
-previousDay Tuesday = Monday
-previousDay Wednesday = Tuesday
-previousDay Thursday = Wednesday
-previousDay Friday = Thursday
-previousDay Saturday = Friday
-previousDay Sunday = Saturday
+previousDay day = let prevIndex = (fromJust (elemIndex day weekDays) - 1) `mod` 7
+                    in
+                      weekDays !! prevIndex
 
 daysLater :: Day -> Int -> Day
 daysLater day 0 = day
