@@ -23,6 +23,8 @@ main = hspec $ do
       property $ \n -> (n >= 0) || isNothing (factSec n)
     it "returns 1 for fact 0" $ do
       factSec 0 `shouldBe` Just 1
+    it "returns Nothing for fact (-1)" $ do
+          factSec (-1) `shouldBe` Nothing
     it "returns the lenght of sentence" $ do
       lengthOfSentence [Name "Kaan", Adverb "eve", Verb "geldi"] `shouldBe` 3
   
