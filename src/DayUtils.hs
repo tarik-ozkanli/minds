@@ -34,14 +34,14 @@ isWeekend day
   | otherwise = False
 
 nextDay :: Day -> Day
-nextDay day = let nextIndex = (fromJust (elemIndex day weekDays) + 1) `mod` 7
-                                  in
-                                    weekDays !! nextIndex
+nextDay day =
+  let nextIndex = (fromJust (elemIndex day weekDays) + 1) `mod` 7
+   in weekDays !! nextIndex
 
 previousDay :: Day -> Day
-previousDay day = let prevIndex = (fromJust (elemIndex day weekDays) - 1) `mod` 7
-                    in
-                      weekDays !! prevIndex
+previousDay day =
+  let prevIndex = (fromJust (elemIndex day weekDays) - 1) `mod` 7
+   in weekDays !! prevIndex
 
 daysLater :: Day -> Int -> Day
 daysLater day 0 = day

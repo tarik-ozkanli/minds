@@ -1,6 +1,6 @@
 module WordUtils
   ( fact,
-    factSec, 
+    factSec,
     WordType (Name, Adjective, Verb, Adverb),
     Sentence,
     lengthOfSentence,
@@ -11,7 +11,7 @@ import Data.Maybe (fromJust)
 
 fact :: Integer -> Integer
 fact 0 = 1
-fact n = n * fact (n-1)
+fact n = n * fact (n -1)
 
 -- secure Factorial function.
 factSec :: Integer -> Maybe Integer
@@ -24,7 +24,6 @@ type Symbol = String
 
 data WordType = Name Symbol | Verb Symbol | Adverb Symbol | Adjective Symbol
   deriving (Eq, Show)
-
 
 type Sentence = [WordType]
 
