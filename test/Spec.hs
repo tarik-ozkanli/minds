@@ -1,6 +1,7 @@
 import Control.Exception (evaluate)
 import Data.Maybe (isNothing)
 import WordUtils
+import DayUtils
 import Test.Hspec
 import Test.QuickCheck
 
@@ -15,14 +16,16 @@ main = hspec $ do
     it "throws an exception if used with an empty list" $ do
       evaluate (head []) `shouldThrow` anyException
   
-  describe "Lib.fact" $ do
+  describe "Wordutils" $ do
     it "returns the factorial of the number" $ do
-      fact 4 `shouldBe` (Just 24 :: Maybe Integer)
+      factSec 4 `shouldBe` (Just 24 :: Maybe Integer)
     it "returns Nothing for an *arbitrary* negative n for fact n" $ do
-      property $ \n -> (n >= 0) || isNothing (fact n)
+      property $ \n -> (n >= 0) || isNothing (factSec n)
     it "returns 1 for fact 0" $ do
-      fact 0 `shouldBe` Just 1
-  
-  describe "Lib.language" $ do
+      factSec 0 `shouldBe` Just 1
     it "returns the lenght of sentence" $ do
       lengthOfSentence [Name "Kaan", Adverb "eve", Verb "geldi"] `shouldBe` 3
+  
+  describe "DayUtils" $ do
+      it "returns the next day of the week" $ do
+        nextDay Tuesday `shouldBe` Wednesday
