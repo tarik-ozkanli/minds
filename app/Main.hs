@@ -1,7 +1,7 @@
 module Main where
 
 import Web.Scotty
-import Handlers
+import Routes
 
 
 main :: IO ()
