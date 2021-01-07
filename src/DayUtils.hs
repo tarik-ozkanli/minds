@@ -1,8 +1,9 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
 module DayUtils
-  ( isWeekend,
-    Day (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday),
+  ( Day (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday),
+    isValidDay,
+    isWeekend,
     nextDay,
     previousDay,
     daysLater,
@@ -27,6 +28,9 @@ data Day
 
 weekDays :: [Day]
 weekDays = [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+
+isValidDay :: String -> Bool
+isValidDay day = read day `elem` weekDays
 
 isWeekend :: Day -> Bool
 isWeekend day

@@ -2,20 +2,44 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
 module DayHandlers
-  (beam,
+  ( isDayH,
+    nextDayH,
+    previousDayH,
+    isBeforeH,
   )
 where
 
-  
-import Data.Maybe (fromJust)
 import Data.Text.Internal.Lazy (Text)
 import Data.Text.Lazy (pack, unpack)
 import DayUtils
-import TextUtils
-import Web.Scotty (ActionM, param, html)
+import TextUtils (fromLazyText, toLazyText)
+import Web.Scotty (ActionM, html, json, param)
 
+isDayH :: ActionM ()
+isDayH = do
+  text :: String <- param "text"
+  let output = isValidDay text
+   in json output
 
-beam :: ActionM ()
-beam = do
-  name <- param "name"
-  html $ mconcat ["<h1>", name, ", beam me up!</h1>"]
+nextDayH :: ActionM ()
+nextDayH = do
+  day <- param "day"
+  let inputDay = fromLazyText day
+      output = (toLazyText . nextDay) inputDay
+   in json output
+
+previousDayH :: ActionM ()
+previousDayH = do
+  day <- param "day"
+  let inputDay = fromLazyText day
+      output = (toLazyText . previousDay) inputDay
+   in json output
+
+isBeforeH :: ActionM ()
+isBeforeH = do
+  day1 <- param "day1"
+  day2 <- param "day2"
+  let inputDay1 :: Day = fromLazyText day1
+      inputDay2 :: Day = fromLazyText day2
+      output = toLazyText (isBefore inputDay1 inputDay2)
+   in json output

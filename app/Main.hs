@@ -1,8 +1,12 @@
 module Main where
 
-import Web.Scotty
 import DayRoutes
+import WordRoutes
 
+import Web.Scotty
 
 main :: IO ()
-main = scotty 3000 dayRoutes
+main = do 
+  scotty 3000 dayRoutes
+  scotty 3001 wordRoutes
+        

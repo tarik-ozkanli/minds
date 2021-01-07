@@ -26,6 +26,8 @@ main = hspec $ do
       lengthOfSentence [Name "Kaan", Adverb "eve", Verb "geldi"] `shouldBe` 3
 
   describe "DayUtils" $ do
+    it "returns whether given text is a valid day" $ do
+        isValidDay "Tuesday" `shouldBe` True
     it "returns the next day of the week" $ do
       nextDay Tuesday `shouldBe` Wednesday
     it "returns the previous day of the week" $ do
