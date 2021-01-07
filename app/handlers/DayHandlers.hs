@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module DayRoutes
+module DayHandlers
   (beam,
   )
 where
@@ -10,14 +10,9 @@ import Data.Maybe (fromJust)
 import Data.Text.Internal.Lazy (Text)
 import Data.Text.Lazy (pack, unpack)
 import DayUtils
+import TextUtils
 import Web.Scotty (ActionM, param, html)
 
-
-toLazyText :: Show a => a -> Text
-toLazyText = Data.Text.Lazy.pack . show
-
-fromLazyText :: Read a => Text -> a
-fromLazyText = read . Data.Text.Lazy.unpack
 
 beam :: ActionM ()
 beam = do

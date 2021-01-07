@@ -7,18 +7,15 @@ module DayRoutes
 where
 
 import Data.Maybe (fromJust)
-import Data.Text.Internal.Lazy (Text)
-import Data.Text.Lazy (pack, unpack)
+
 import DayUtils
+import WordUtils
+import TextUtils
 import Web.Scotty
 import DayHandlers
 
 
-toLazyText :: Show a => a -> Text
-toLazyText = Data.Text.Lazy.pack . show
 
-fromLazyText :: Read a => Text -> a
-fromLazyText = read . Data.Text.Lazy.unpack
 
 dayRoutes :: ScottyM ()
 dayRoutes = do

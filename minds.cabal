@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b2b78167b141aae3f24c13ac4ef08887752e1e82f68759b15a025161952ad5a0
+-- hash: f616b3ec67d2d9d88263c93f824c8d620a0fe800ca6fb53a44e9dd4af11a7417
 
 name:           minds
 version:        0.1.0.0
@@ -28,6 +28,7 @@ source-repository head
 library
   exposed-modules:
       DayUtils
+      TextUtils
       WordUtils
   other-modules:
       Paths_minds
@@ -41,10 +42,13 @@ library
 executable minds-exe
   main-is: Main.hs
   other-modules:
+      DayHandlers
       DayRoutes
       Paths_minds
   hs-source-dirs:
       app
+      app/handlers
+      app/routes
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5

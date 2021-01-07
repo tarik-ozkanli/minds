@@ -29,7 +29,10 @@ library:
 executables:
   minds-exe:
     main:                Main.hs
-    source-dirs:         app
+    source-dirs:
+    - app
+    - app/handlers
+    - app/routes
     ghc-options:
     - -threaded
     - -rtsopts

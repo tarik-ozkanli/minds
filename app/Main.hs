@@ -5,4 +5,4 @@ import DayRoutes
 
 
 main :: IO ()
-main = scotty 3000 routes
+main = scotty 3000 dayRoutes
