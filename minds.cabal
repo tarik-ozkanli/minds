@@ -41,7 +41,7 @@ library
 executable minds-exe
   main-is: Main.hs
   other-modules:
-      Routes
+      DayRoutes
       Paths_minds
   hs-source-dirs:
       app

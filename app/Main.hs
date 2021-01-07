@@ -1,7 +1,7 @@
 module Main where
 
 import Web.Scotty
-import Routes
+import DayRoutes
 
 
 main :: IO ()

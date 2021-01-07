@@ -1,8 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Routes
-  ( routes,
+module DayRoutes
+  ( dayRoutes,
   )
 where
 
@@ -11,7 +11,8 @@ import Data.Text.Internal.Lazy (Text)
 import Data.Text.Lazy (pack, unpack)
 import DayUtils
 import Web.Scotty
-import WordUtils
+import DayHandlers
+
 
 toLazyText :: Show a => a -> Text
 toLazyText = Data.Text.Lazy.pack . show
@@ -19,11 +20,9 @@ toLazyText = Data.Text.Lazy.pack . show
 fromLazyText :: Read a => Text -> a
 fromLazyText = read . Data.Text.Lazy.unpack
 
-routes :: ScottyM ()
-routes = do
-  get "/name/:name" $ do
-    name <- param "name"
-    html $ mconcat ["<h1>", name, ", beam me up!</h1>"]
+dayRoutes :: ScottyM ()
+dayRoutes = do
+  get "/name/:name" $ beam
 
   get "/fact/:num" $ do
     num <- param "num"
