@@ -27,7 +27,9 @@ main = hspec $ do
 
   describe "DayUtils" $ do
     it "returns whether given text is a valid day" $ do
-        isValidDay "Tuesday" `shouldBe` True
+        isValidDay "Tuesday" `shouldBe` Just Tuesday
+    it "returns whether given text is a valid day" $ do
+        isValidDay "Tueday" `shouldBe` Nothing
     it "returns the next day of the week" $ do
       nextDay Tuesday `shouldBe` Wednesday
     it "returns the previous day of the week" $ do

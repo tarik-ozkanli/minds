@@ -23,7 +23,7 @@ isDayH :: ActionM ()
 isDayH = do
   text :: String <- param "text"
   let output = isValidDay text
-   in json output
+   in json $ toLazyText output
 
 nextDayH :: ActionM ()
 nextDayH = do
