@@ -2,6 +2,7 @@
 
 module DayUtils
   ( Day (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday),
+    weekDays,
     isValidDay,
     isWeekend,
     nextDay,

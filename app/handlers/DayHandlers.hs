@@ -2,7 +2,8 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
 module DayHandlers
-  ( isDayH,
+  ( weekDays,
+    isDayH,
     nextDayH,
     previousDayH,
     isBeforeH,
@@ -14,6 +15,9 @@ import Data.Text.Lazy (pack, unpack)
 import DayUtils
 import TextUtils (fromLazyText, toLazyText)
 import Web.Scotty (ActionM, html, json, param)
+
+daysOfWeek :: ActionM ()
+daysOfWeek = json weekDays
 
 isDayH :: ActionM ()
 isDayH = do
