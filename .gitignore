@@ -4,4 +4,5 @@ dist-newstyle
 out
 minds.iml
 stack.yaml.lock
+minds.cabal
 *~
