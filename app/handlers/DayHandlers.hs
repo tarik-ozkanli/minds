@@ -17,7 +17,7 @@ import TextUtils (fromLazyText, toLazyText)
 import Web.Scotty (ActionM, html, json, param)
 
 daysOfWeek :: ActionM ()
-daysOfWeek = json weekDays
+daysOfWeek = json (show weekDays)
 
 isDayH :: ActionM ()
 isDayH = do
