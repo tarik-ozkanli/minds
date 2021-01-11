@@ -2,7 +2,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
 module DayHandlers
-  ( weekDays,
+  ( daysOfWeek,
     isDayH,
     nextDayH,
     previousDayH,

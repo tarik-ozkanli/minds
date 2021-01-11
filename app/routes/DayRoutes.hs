@@ -16,7 +16,7 @@ import Web.Scotty
 dayRoutes :: ScottyM ()
 dayRoutes = do
 
-  get "7days" daysOfWeek
+  get "/days" daysOfWeek
   get "/days/isday/:text" isDayH
   get "/days/next/:day" nextDayH
   get "/days/previous/:day" previousDayH
