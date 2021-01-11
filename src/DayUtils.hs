@@ -30,6 +30,7 @@ data Day
 weekDays :: [Day]
 weekDays = [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
 
+-- TODO :improve this function
 isValidDay :: String -> Bool
 isValidDay day = read day `elem` weekDays
 
